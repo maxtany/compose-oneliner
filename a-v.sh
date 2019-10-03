@@ -14,12 +14,15 @@ do
         "-k"|"--token")
             TOKEN="${args[((i+1))]}"
         ;;
-        "-g"|"--git")
-            GIT="${args[((i+1))]}"
-        ;;
         "-p"|"--product")
             PRODUCT="${args[((i+1))]}"
         ;;
+        "-g"|"--git")
+            GIT="${args[((i+1))]}"
+        ;;
+        "-d"|"--debug")
+            EXEC='bash -x'
+
 
     esac
     ((i++))
@@ -63,11 +66,11 @@ fi
 
 [ -d /opt/compose-oneliner ] && rm -rf /opt/compose-oneliner
 
-git clone --recurse-submodules  https://github.com/AnyVisionltd/compose-oneliner.git -b ori_dev /opt/compose-oneliner
+git clone --recurse-submodules  https://github.com/AnyVisionltd/compose-oneliner.git /opt/compose-oneliner
 
 pushd /opt/compose-oneliner && chmod u+x /opt/compose-oneliner/compose-oneliner.sh
-
-bash -x ./compose-oneliner.sh ${BRANCH} ${TOKEN} ${PRODUCT} ${GIT} 
+EXEC="${EXEC:-bash}"
+$EXEC ./compose-oneliner.sh ${BRANCH} ${TOKEN} ${PRODUCT} ${GIT} 
 if [ $? -ne 0 ] ; then 
 	echo "Something went wrong contact support"
 	exit 99
