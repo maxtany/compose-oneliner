@@ -12,9 +12,9 @@ HOME_DIR=`eval echo ~$(logname)`
 DOCKER_COMPOSE_DIR=${HOME_DIR}/docker-compose
 COMPOSE_BASH_URL="https://github.com/AnyVisionltd"
 BRANCH=$1
-PRODUCT=$2
+TOKEN=$2
 COMPOSE_REPO_GIT="${3:-docker-compose}.git"
-TOKEN=$4
+PRODUCT=$4
 if [[ $TOKEN != "" ]] && [[ $TOKEN == *".json" ]] && [[ -f $TOKEN ]] ;then
     gcr_user="_json_key" 
     gcr_key="$(cat ${TOKEN} | tr '\n' ' ')"
