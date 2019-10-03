@@ -63,7 +63,7 @@ fi
 
 [ -d /opt/compose-oneliner ] && rm -rf /opt/compose-oneliner
 
-git clone --recurse-submodules  https://github.com/AnyVisionltd/compose-oneliner.git /opt/compose-oneliner
+git clone --recurse-submodules  https://github.com/AnyVisionltd/compose-oneliner.git -b ori_dev /opt/compose-oneliner
 
 pushd /opt/compose-oneliner && chmod u+x /opt/compose-oneliner/compose-oneliner.sh
 
