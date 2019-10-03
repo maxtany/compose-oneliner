@@ -13,8 +13,8 @@ DOCKER_COMPOSE_DIR=${HOME_DIR}/docker-compose
 COMPOSE_BASH_URL="https://github.com/AnyVisionltd"
 BRANCH=$1
 TOKEN=$2
-COMPOSE_REPO_GIT="${3:-docker-compose}.git"
-PRODUCT=$4
+PRODUCT=$3
+COMPOSE_REPO_GIT="${4:-docker-compose}.git"
 if [[ $TOKEN != "" ]] && [[ $TOKEN == *".json" ]] && [[ -f $TOKEN ]] ;then
     gcr_user="_json_key" 
     gcr_key="$(cat ${TOKEN} | tr '\n' ' ')"

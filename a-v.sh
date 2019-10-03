@@ -67,7 +67,7 @@ git clone --recurse-submodules  https://github.com/AnyVisionltd/compose-oneliner
 
 pushd /opt/compose-oneliner && chmod u+x /opt/compose-oneliner/compose-oneliner.sh
 
-exec ./compose-oneliner.sh ${BRANCH} ${TOKEN} ${GIT} ${PRODUCT}
+exec ./compose-oneliner.sh ${BRANCH} ${TOKEN} ${PRODUCT} ${GIT} 
 if [ $? -ne 0 ] ; then 
 	echo "Something went wrong contact support"
 	exit 99
